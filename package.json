@@ -27,13 +27,14 @@
     "mongoose": "^8.16.0",
     "multer": "^2.0.1",
     "mysql2": "^3.14.1",
-    "nodemon": "^3.1.10"
-  },
-  "devDependencies": {
+    "nodemon": "^3.1.10",
     "@tailwindcss/postcss": "^4.1.10",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.5",
     "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    
   }
 }
