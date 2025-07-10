@@ -1,0 +1,50 @@
+<%-include(
+  '../partials/head.ejs'
+)%>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 flex flex-col items-center justify-center text-center font-sans">
+ <%-include(
+  '../partials/nav.ejs'
+)%>
+
+  <main class="w-full max-w-7xl flex-1 flex flex-col items-center">
+    <header class="text-5xl font-extrabold text-gray-800 mt-12 mb-8 drop-shadow-lg">Welcome to host home<span class="text-pink-500">Airbnb</span></header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8 w-full">
+      <% if (card){card.forEach(home => { %>
+        <div class="bg-white/90 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col overflow-hidden">
+          <img src="<%= home.photo %>" alt="<%= home.name %>" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300">
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-1 truncate"><%= home.name %></h3>
+            <p class="text-gray-500 mb-3 flex items-center">
+              
+              <span class="truncate"><%= home.location %></span>
+            </p>
+            <div class="flex justify-between items-center mt-auto">
+              <p class="text-lg font-bold text-pink-600">₹<%= home.price %><span class="text-sm text-gray-500 font-normal">/night</span></p>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-yellow-400 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.966c.3.921-.755 1.688-1.54 1.118l-3.38-2.455a1 1 0 00-1.175 0l-3.38 2.455c-.784.57-1.838-.197-1.54-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.049 9.394c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z"/></svg>
+                <span class="text-gray-700 font-medium"><%= home.rating %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3 px-6 pb-6">
+            <a href='/host/edit-home/<%=home._id%>/?editing=true' class="flex-1 py-2 rounded-lg bg-blue-500 text-white font-semibold shadow hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300">
+              Edit
+            </a>
+            <form action="/host/delete-home/<%=home._id%>" method='POST' class="flex-1 py-2 rounded-lg bg-red-500 text-white font-semibold shadow hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-300">
+              <input value="<%=home.rules%>" name="rules" hidden>
+              <input value="<%=home.photo%>" name="photo" hidden>
+              <button type='submit' >
+              Delete
+            </button>
+            </form>
+          </div>
+        </div>
+      <% })} %>
+      
+    </div>
+    
+  </main>
+</body>
+
+</html>

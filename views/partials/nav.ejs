@@ -1,0 +1,30 @@
+    <header class="w-full bg-white/80 shadow-lg px-4 md:px-8 py-2 md:py-4 flex flex-wrap md:flex-nowrap justify-between items-center sticky top-0 z-10">
+      <div class="flex items-center space-x-2">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111320.png" alt="Logo" class="h-8 w-8 rounded-full shadow-md">
+        <span class="text-xl md:text-2xl font-bold text-pink-600 tracking-tight">Airbnb</span>
+      </div>
+      <nav class="w-full md:w-auto mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+        <a href="/" class="<%= val==='airbnb home'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">airbnb</a>
+    <% if (IsLoggedIn) { %>
+        <% if(user && user.userType=='guest') { %>
+        
+        <a href="/store/bookings" class="<%= val==='bookings'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">bookings</a>
+        <a href="/store/favlist" class="<%= val==='favlist'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">favourites</a>
+        <a href="/store/homelist" class="<%= val==='home-list'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">Home-List</a>
+        <%} else { %>
+        <a href="/host/create-home" class="<%= val==='addhome'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">Create Home</a>
+        <a href="/host/home-list" class="<%= val==='host-home-list'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">Host-Home-List</a>
+        <% } %>
+        <form action="/logout" method="POST">
+            <button type="submit" class="<%= val==='logout'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">Logout</button>
+          </form>
+      <% } %>
+      <% if (!IsLoggedIn){  %>
+        <a href="/login" class="<%= val==='login'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">Login</a>
+        <a href="/signup" class="<%= val==='signup'?'bg-pink-500 text-white shadow-lg border-2 border-pink-600':'hover:underline hover:text-pink-600' %> transition px-4 py-2 rounded-lg font-medium text-center">SignUp</a>
+
+        <%   }%>
+          
+        
+      </nav>
+    </header>

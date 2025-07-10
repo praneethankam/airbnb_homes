@@ -1,0 +1,49 @@
+<%-include('../partials/head') %>
+</head>
+<body class=" bg-gradient-to-br from-blue-50 via-pink-50 to-yellow-50 flex flex-col align-top justify-center text-center font-sans">
+
+
+ <%-include(
+  '../partials/nav.ejs'
+)%>
+
+  <div class="flex flex-col items-center justify-center w-full mt-10">
+    <div class="bg-white/90 rounded-xl shadow-2xl p-8 w-full max-w-md border border-pink-100">
+      <h2 class="text-3xl font-bold text-pink-600 mb-6 text-center tracking-tight">Edit Home</h2>
+     
+  <form action="/host/<%= editing?'post-edited-home':'post-home'%>" method="POST" enctype='multipart/form-data' class="space-y-5">
+    <input type="hidden" name="id" value="<%= editing ? home._id : '' %>">
+    <input type="text" name="name" value="<%= editing ? home.name : '' %>"
+  placeholder="Homename"  class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" />
+    
+    <input type="text" name="location" value="<%= editing?home.location:'' %>" placeholder="location" class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" />
+    
+    <input type="text" name="price" value="<%= editing?home.price:'' %>" placeholder="price" class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" />
+    
+    <input type="text" name="rating" value="<%= editing?home.rating:'' %>" placeholder="rating" class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" />
+    
+    <label for="photo" class="block mb-2 text-sm font-medium text-gray-700">
+         Choose House Image
+     </label>
+    <input type="file" name="photo" id='photo' accept="image/*" class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" />
+
+     <label for="rules" class="block mb-2 text-sm font-medium text-gray-700">
+         Choose House Rules PDF
+     </label>
+      <input 
+      type="file" 
+      name="rules" 
+      id="rules" 
+      accept=".pdf"
+      class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" 
+      />
+
+    <textarea  name="description"  placeholder="describe your home" class="border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-100 rounded-lg px-4 py-3 w-full transition outline-none text-gray-700" ><%= editing ? home.description : null %></textarea>
+    
+    <input type="submit" value="<%=editing?'update':'add'%>" class="w-full px-6 py-3 bg-pink-500 text-white rounded-lg font-semibold shadow-md hover:bg-pink-600 transition cursor-pointer" />
+  </form>
+
+    </div>
+  </div>
+</body>
+</html>

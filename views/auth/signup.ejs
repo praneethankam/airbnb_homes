@@ -1,0 +1,134 @@
+<%- include('../partials/head') %>
+</head>
+<body class="min-h-screen bg-gradient-to-r from-blue-100 to-purple-200 flex flex-col items-center justify-center font-sans">
+    <%- include('../partials/nav.ejs') %>
+
+    <div class="w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 my-10">
+        <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-8">Create Your Account</h2>
+        
+        <form action="/signup" method="POST" class="space-y-3">
+            <% if (typeof errors != 'undefined' && errors && errors.length > 0)  {  %>
+                <div class="bg-red-100 text-red-700 p-4 rounded-lg mb-4">
+                    <ul class="list-disc list-inside">
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            <% } %>
+            <!-- First Name -->
+            <div>
+                <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    value="<%= oldinput.firstname ?oldinput.firstname : '' %>"
+                    required
+                    placeholder="First Name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400 font-medium"
+                >
+            </div>
+
+            <!-- Last Name -->
+            <div>
+                <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    value="<%= oldinput.lastname ?oldinput.lastname : '' %>"
+                    placeholder="Last Name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400 font-medium"
+                >
+            </div>
+
+            <!-- Email -->
+            <div>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<%= oldinput.email ?oldinput.email : '' %>"
+                    required
+                    placeholder="you@example.com"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400 font-medium"
+                >
+            </div>
+
+            <!-- Password -->
+            <div>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value="<%= oldinput.password ?oldinput.password : '' %>"
+                    required
+                    placeholder="Password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400 font-medium"
+                >
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+                <input
+                    type="password"
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    value="<%= oldinput.confirmpassword ?oldinput.confirmpassword : '' %>"
+                    required
+                    placeholder="Confirm Password"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400 font-medium"
+                >
+            </div>
+
+            <!-- User Type -->
+            <div class="space-y-2">
+                <span class="block text-gray-700 font-semibold">User Type</span>
+                <div class="flex gap-4">
+                    <label class="flex-1 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 flex items-center justify-center cursor-pointer transition-all hover:bg-blue-100 hover:border-blue-400">
+                    <input
+                        type="radio"
+                        id="guest"
+                        value="guest"
+                        name="userType"
+                        class="form-radio ..."
+                        <%= oldinput.userType === 'guest' ? 'checked' : '' %>>
+
+                        <span class="ml-2 text-blue-700 font-medium">Guest</span>
+                    </label>
+                    <label class="flex-1 bg-purple-50 border border-purple-200 rounded-lg px-4 py-3 flex items-center justify-center cursor-pointer transition-all hover:bg-purple-100 hover:border-purple-400">
+                    <input
+                        type="radio"
+                        id="host"
+                        value="host"
+                        name="userType"
+                        class="form-radio ..."
+                        <%= oldinput.userType === 'host' ? 'checked' : '' %>>
+
+                        <span class="ml-2 text-purple-700 font-medium">Host</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Terms Checkbox -->
+            <div>
+                <label class="inline-flex items-start">
+                    <input type="checkbox" id="terms" name="terms" class="mt-1 form-checkbox text-blue-600" required>
+                    <span class="ml-3 text-gray-700">I agree to the <a href="#" class="text-blue-600 underline hover:text-blue-800">Terms and Conditions</a></span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg font-semibold py-2 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-600 transition duration-200"
+            >
+                Sign Up
+            </button>
+
+        </form>
+    </div>
+
+    <!-- Password Match Validation -->
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<%-include(
+'../partials/head.ejs'
+)%>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 p-6">
+ <%-include(
+  '../partials/nav.ejs'
+)%>
+
+  <main class="flex flex-1 w-full items-center justify-center">
+    <div class="bg-white/90 rounded-2xl shadow-2xl px-12 py-10 max-w-md w-full text-center mt-16 border-2 border-green-200 relative overflow-hidden">
+      <div class="flex justify-center mb-6">
+        <svg class="h-16 w-16 text-green-500 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2.5" fill="#bbf7d0"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9" stroke="#22c55e" stroke-width="3"/>
+        </svg>
+      </div>
+      <p class="text-green-700 text-3xl font-extrabold mb-2 drop-shadow-lg">Success!</p>
+      <p class="text-green-600 text-lg font-medium mb-6">Home added successfully</p>
+      <a href="/" class="inline-block mt-4 px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-lg shadow transition">Go to Home</a>
+    </div>
+  </main>
+</body>
+
+</html>
