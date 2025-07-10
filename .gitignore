@@ -14,7 +14,6 @@ yarn-error.log*
 Thumbs.db
 
 # Uploaded files (user uploads via multer)
-uploads/
-rules/
+
 
 
