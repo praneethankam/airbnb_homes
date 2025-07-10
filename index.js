@@ -100,7 +100,7 @@ app.use(hostRouter)
 app.use(authRouter)
 app.use(notfound)
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 mongoose.connect(url).then(() => {
