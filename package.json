@@ -15,10 +15,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.11",
     "autoprefixer": "^10.4.21",
     "bcryptjs": "^3.0.2",
-    "concurrently": "^9.1.2",
     "connect-mongodb-session": "^5.0.0",
     "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
@@ -29,9 +28,12 @@
     "mongoose": "^8.16.0",
     "multer": "^2.0.1",
     "mysql2": "^3.14.1",
-    "nodemon": "^3.1.10",
     "postcss": "^8.5.5",
     "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10"
   }
 }
