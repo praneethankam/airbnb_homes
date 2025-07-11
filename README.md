@@ -2,7 +2,7 @@
 
 A full-stack Airbnb-like application built with Node.js, Express, MongoDB, EJS, TailwindCSS, and Multer for file uploads.
 
-https://airbnb-homes.onrender.com
+
 ## 🔗 Live Demo
 
 [View Live](https://airbnb-homes.onrender.com)
