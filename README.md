@@ -44,7 +44,8 @@ A full-stack Airbnb-like application built with Node.js, Express, MongoDB, EJS, 
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/praneethankam/airbnb_homes.git
+
    cd chapter15
    ```
 
